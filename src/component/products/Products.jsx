@@ -20,8 +20,8 @@ const Products = () => {
         return fetch("https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US", {
             "method": "GET",
             "headers": {
-                "x-rapidapi-host": "asos2.p.rapidapi.com",
-                "x-rapidapi-key": "f35ad9ade0mshab5def3c311325ep16aa16jsn89bb678f420c"
+                "x-rapidapi-host": process.env.REACT_APP_RAPIDAPI_HOST,
+                "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY
             }
         }).then(res =>
             res.json())
