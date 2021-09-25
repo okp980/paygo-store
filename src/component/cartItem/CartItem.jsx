@@ -9,7 +9,7 @@ const CartItem = ({ item }) => {
     const dispatch = useDispatch()
     return (
         <tr>
-            <td><Link to='/product'>{title}</Link></td>
+            <td><Link to={`/${id}`}>{title}</Link></td>
             <td>{price}</td>
             <td><Counter value={quantity} id={id} /></td>
             <td>

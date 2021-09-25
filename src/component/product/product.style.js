@@ -14,6 +14,9 @@ export const ProductCard = styled.li`
 			}
 		}
 		.card-details {
+			a {
+				display: block;
+			}
 			/* background-color: ${({ theme }) => theme.colors.gray200}; */
 			padding: 0.5em;
 			h5 {

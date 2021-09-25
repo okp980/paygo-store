@@ -47,7 +47,6 @@ const Checkout = ({ closeModal, amount }) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(details);
         handleFlutterPayment({ callback: handlePayment, onClose: () => { closeModal() } })
         setDetails(userDetails)
     }

@@ -7,8 +7,7 @@ export const Section = styled.section`
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas:
 			"header header"
-			"imageDisplay imageDescription"
-			"similarProducts similarProducts";
+			"imageDisplay imageDescription";
 	}
 `;
 export const Header = styled.div`
@@ -24,6 +23,11 @@ export const ImageDisplay = styled.div`
 
 	.image {
 		height: 500px;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
 	}
 `;
 export const ImageDescription = styled.div`
@@ -40,7 +44,10 @@ export const ImageDescription = styled.div`
 		text-transform: uppercase;
 	}
 `;
-export const SimilarProducts = styled.div`
-	grid-area: similarProducts;
-	background-color: yellow;
+
+export const LoadingDiv = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
 `;

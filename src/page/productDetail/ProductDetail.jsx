@@ -1,37 +1,60 @@
 import React from 'react'
-import { useState } from 'react'
+import Loader from 'react-loader-spinner'
+import { useQuery } from 'react-query'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory, useParams } from 'react-router-dom'
+import { CartActions } from '../../redux/slice/cartSlice'
 import Button from '../../util/button/Button'
-import { Header, ImageDescription, ImageDisplay, Section, SimilarProducts } from './productdetail.style'
+import Counter from '../../util/counter/Counter'
+import { Header, ImageDescription, ImageDisplay, LoadingDiv, Section } from './productdetail.style'
 
 const ProductDetail = () => {
-    const [quantity, setQuantity] = useState(1);
+    const { productId } = useParams()
+    const productInCart = useSelector(state => state.cart.items.find(item => +productId === item.id))
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const { isLoading, isError, data } = useQuery('product', () => {
+        return fetch(`https://fakestoreapi.com/products/${productId}`).then(res =>
+            res.json())
+    })
 
-    function handleQuantity(e) {
-        setQuantity(e.target.value)
-    }
+    if (isLoading && !isError) return (
+        <LoadingDiv>
+            <Loader
+                type="TailSpin"
+                color="#000000"
+                height={50}
+                width={50}
+            />
+        </LoadingDiv>
+    )
+    if (isError) return (
+        <LoadingDiv>
+            <p>Error Occured trying to fetch product data</p>
+        </LoadingDiv>
+    )
+
     return (
         <Section>
             <Header>
                 <h3>Product Detail</h3>
-
             </Header>
             <ImageDisplay>
                 <div className="image">
-
+                    <img src={data.image} alt={data.title} />
                 </div>
             </ImageDisplay>
             <ImageDescription>
-                <h2>diamond rings</h2>
-                <h3>N25,000</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam error accusantium commodi optio eveniet quis accusamus animi veritatis magnam laudantium, magni consectetur atque vero totam.</p>
+                <h2>{data.title}</h2>
+                <h3>{data.price}</h3>
+                <p>{data.description}</p>
                 <h4>qty</h4>
-                <input type="number" min="1" max="10" step="1" value={quantity} onChange={handleQuantity} />
-                <div className="counter"></div>
+                <Counter value={productInCart ? productInCart.quantity : 1} id={+productId} />
                 <div className="btnControls">
-                    <Button>buy now</Button>
+                    <Button onClick={() => productInCart ? history.push('/cart') : dispatch(CartActions.addToCart(data))}>{productInCart ? "proceed to checkout" : "add to cart"}</Button>
                 </div>
             </ImageDescription>
-            <SimilarProducts>v</SimilarProducts>
+
         </Section>
     )
 }

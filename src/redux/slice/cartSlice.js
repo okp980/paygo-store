@@ -18,9 +18,9 @@ const CartSlice = createSlice({
 				state.items.push({
 					...product,
 					quantity: 1,
-					totalPrice: product.price,
+					totalPrice: +product.price,
 				});
-				state.amount += product.price;
+				state.amount += +product.price;
 			} else {
 				if (isProduct.quantity >= 10) return;
 				const newItems = state.items.map((prod) =>

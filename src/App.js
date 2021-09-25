@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Layout from "./container/layout/Layout";
 import Cart from "./page/cart/Cart";
 import Home from "./page/home/Home";
@@ -9,18 +9,20 @@ function App() {
 	return (
 		<div className="App">
 			<Layout>
-				<Route path="/" exact>
-					<Home />
-				</Route>
-				<Route path="/product">
-					<ProductDetail />
-				</Route>
-				<Route path="/cart">
-					<Cart />
-				</Route>
-				<Route path="/signIn">
-					<SignIn />
-				</Route>
+				<Switch>
+					<Route path="/" exact>
+						<Home />
+					</Route>
+					<Route path="/cart">
+						<Cart />
+					</Route>
+					<Route path="/signIn">
+						<SignIn />
+					</Route>
+					<Route path="/:productId">
+						<ProductDetail />
+					</Route>
+				</Switch>
 			</Layout>
 		</div>
 	);

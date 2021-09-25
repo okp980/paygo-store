@@ -3,6 +3,7 @@ import { ProductCard } from "./product.style"
 import Button from '../../util/button/Button'
 import { useDispatch } from 'react-redux'
 import { CartActions } from '../../redux/slice/cartSlice'
+import { Link } from "react-router-dom"
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()
@@ -20,7 +21,7 @@ const Product = ({ product }) => {
                     <img src={product.image} alt={product.title} />
                 </div>
                 <div className="card-details">
-                    <p>{truncateString(product.title)}</p>
+                    <Link to={`/${product.id}`}>{truncateString(product.title)}</Link>
                     <small>{product.category}</small>
                     <h5>{product.price}</h5>
                     <div className="btn-group">
