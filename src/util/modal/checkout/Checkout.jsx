@@ -3,9 +3,13 @@ import ReactDOM from "react-dom";
 import Button from "../../button/Button"
 import { Modal, Overlay } from "./checkout.style"
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
+import { useSelector } from "react-redux";
+import { Redirect, useLocation } from "react-router-dom";
 
 
 const Checkout = ({ closeModal, amount }) => {
+    const isAuthenticated = useSelector(state => state.auth.authenticated)
+    const location = useLocation()
 
     const userDetails = {
         fullName: '',
@@ -51,6 +55,14 @@ const Checkout = ({ closeModal, amount }) => {
         setDetails(userDetails)
     }
 
+    if (!isAuthenticated) {
+        return <Redirect
+            to={{
+                pathname: "/signIn",
+                state: { from: location }
+            }}
+        />
+    }
 
     return (
         <>

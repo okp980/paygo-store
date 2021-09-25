@@ -1,23 +1,24 @@
 import Button from "../../util/button/Button"
 import { Section } from "./signIn.style"
 import { GrGoogle } from "react-icons/gr";
-import { useDispatch } from "react-redux";
-import { authSliceActions } from "../../redux/slice/authSlice";
 import { signInUser } from "../../firebase/firebaseUtil";
+import { useHistory, useLocation } from 'react-router-dom'
 
 
 
 const SignIn = () => {
-    const dispatch = useDispatch()
+    const history = useHistory()
+    const location = useLocation()
     async function handleSignInUser() {
         try {
-            const result = await signInUser()
-            const user = result.user
-            console.log(user);
+            await signInUser()
+            if (location.state) {
+                return history.push(location.state.from.pathname)
+            }
+            return history.push('/');
         } catch (error) {
             console.log(error);
         }
-        // dispatch(authSliceActions.signInuser())
     }
     return (
         <Section>

@@ -7,11 +7,11 @@ const AuthSlice = createSlice({
 		currentUser: null,
 	},
 	reducers: {
-		signInuser: (state, payload) => {
+		signInuser: (state, action) => {
 			state.authenticated = true;
-			state.currentUser = payload;
+			state.currentUser = action.payload;
 		},
-		signOutuser: (state) => {
+		signOutuser: (state, action) => {
 			state.authenticated = false;
 		},
 	},
