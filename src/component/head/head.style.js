@@ -13,7 +13,6 @@ export const Header = styled.header`
 		justify-content: space-between;
 		align-items: center;
 	}
-
 	h3 {
 		color: var(--clr-white);
 	}
@@ -28,8 +27,8 @@ export const Cart = styled.li`
 		padding: 0.6em;
 		color: white;
 		position: absolute;
-		bottom: 15%;
-		right: -80%;
+		bottom: 5%;
+		right: 0%;
 		background-color: #000000;
 		line-height: 0.75em;
 		display: flex;

@@ -12,6 +12,14 @@ const GlobalStyles = createGlobalStyle`
     outline: none;
     }
     }
+
+
+    .react--icons {
+	font-size: var(--fs-600);
+	margin-right: 0.9rem;
+	color: var(--clr-white);
+}
+
 `;
 
 export default GlobalStyles;

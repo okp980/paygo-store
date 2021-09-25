@@ -225,13 +225,3 @@ label {
 	font-size: var(--fs-500);
 	margin-bottom: 5px;
 }
-
-.react--icons {
-	font-size: var(--fs-600);
-	margin-right: 0.9rem;
-	color: var(--clr-white);
-}
-
-.react--icons:last-of-type {
-	margin-right: 0;
-}
