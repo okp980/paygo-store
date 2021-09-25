@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Header = styled.header`
 	z-index: 2;
 	position: sticky;
+	top: 0;
 	background-color: var(--clr-dark);
 	div {
-		padding: 20px;
+		padding: 0.7rem 1.3remgit;
 		max-width: 1400px;
 		margin: 0 auto;
 		display: flex;
@@ -18,16 +19,7 @@ export const Header = styled.header`
 	}
 `;
 
-export const Nav = styled.div`
-	z-index: 9999;
-`;
-
-export const MenuItem = styled.li`
-	margin: 0 20px;
-	cursor: pointer;
-`;
-export const Cart = styled(MenuItem)`
-	margin: 0 20px;
+export const Cart = styled.li`
 	cursor: pointer;
 	position: relative;
 
@@ -56,30 +48,19 @@ export const NavMenuUser = styled.ul`
 `;
 
 export const UserNavLink = styled.li`
-	position: relative;
-`;
+	margin-left: 2.5em;
+	span,
+	a {
+		color: ${({ theme }) => theme.colors.gray100};
+		padding: 0.2em 0.4em;
+		border: 1px solid ${({ theme }) => theme.colors.gray100};
+		border-radius: 3px;
+		text-transform: uppercase;
+		cursor: pointer;
 
-export const Dropdown = styled.div`
-	position: absolute;
-	top: 55px;
-	div {
-		background-color: #222;
-		width: 150px;
-		display: ${({ toggle }) => (toggle ? "block" : "none")};
-
-		overflow: hidden;
-
-		a {
-			display: block;
-			padding: 15px 8px;
-			text-transform: capitalize;
-			text-decoration: none;
-			color: #fff;
-			font-size: 12px;
-
-			&:hover {
-				color: greenyellow;
-			}
+		&:hover {
+			background-color: ${({ theme }) => theme.colors.gray100};
+			color: ${({ theme }) => theme.colors.gray700};
 		}
 	}
 `;
