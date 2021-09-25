@@ -1,23 +1,26 @@
 import styled from "styled-components";
 
 export const ProductCard = styled.li`
+	margin: 0 1em 1em 0;
 	div {
 		padding: 0;
 		.image {
-			width: 100%;
+			width: 250px;
 			overflow: hidden;
-			height: 450px;
+			height: 250px;
+			background-color: #fff;
 			img {
 				width: 100%;
 				display: block;
-				object-fit: cover;
+				object-fit: contain;
 			}
 		}
 		.card-details {
+			width: 250px;
 			a {
 				display: block;
 			}
-			/* background-color: ${({ theme }) => theme.colors.gray200}; */
+			background-color: ${({ theme }) => theme.colors.gray300};
 			padding: 0.5em;
 			h5 {
 				span {
@@ -28,7 +31,8 @@ export const ProductCard = styled.li`
 			}
 			small {
 				font-weight: 600;
-				color: ${({ theme }) => theme.colors.gray600};
+				color: ${({ theme }) => theme.colors.gray500};
+				text-transform: uppercase;
 			}
 			.btn-group {
 				display: flex;

@@ -8,8 +8,8 @@ import { Link } from "react-router-dom"
 const Product = ({ product }) => {
     const dispatch = useDispatch()
     function truncateString(str) {
-        if (str.length > 30) {
-            return str.slice(0, 34) + "...";
+        if (str.length > 20) {
+            return str.slice(0, 20) + "...";
         } else {
             return str;
         }
@@ -23,7 +23,7 @@ const Product = ({ product }) => {
                 <div className="card-details">
                     <Link to={`/${product.id}`}>{truncateString(product.title)}</Link>
                     <small>{product.category}</small>
-                    <h5>{product.price}</h5>
+                    <h5>${product.price}</h5>
                     <div className="btn-group">
                         <Button onClick={() => dispatch(CartActions.addToCart({ ...product, price: +product.price }))}>add to cart</Button>
                     </div>

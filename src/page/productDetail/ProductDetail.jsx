@@ -46,10 +46,12 @@ const ProductDetail = () => {
             </ImageDisplay>
             <ImageDescription>
                 <h2>{data.title}</h2>
-                <h3>{data.price}</h3>
+                <h3>${data.price}</h3>
                 <p>{data.description}</p>
                 <h4>qty</h4>
-                <Counter value={productInCart ? productInCart.quantity : 1} id={+productId} />
+                <div className="counter">
+                    <Counter value={productInCart ? productInCart.quantity : 1} id={+productId} />
+                </div>
                 <div className="btnControls">
                     <Button onClick={() => productInCart ? history.push('/cart') : dispatch(CartActions.addToCart(data))}>{productInCart ? "proceed to checkout" : "add to cart"}</Button>
                 </div>

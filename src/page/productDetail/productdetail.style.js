@@ -20,9 +20,13 @@ export const Header = styled.div`
 `;
 export const ImageDisplay = styled.div`
 	grid-area: imageDisplay;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	.image {
-		height: 500px;
+		width: 250px;
+		height: 250px;
 
 		img {
 			width: 100%;
@@ -42,6 +46,11 @@ export const ImageDescription = styled.div`
 
 	h4 {
 		text-transform: uppercase;
+	}
+
+	.counter {
+		display: flex;
+		margin-bottom: 1em;
 	}
 `;
 

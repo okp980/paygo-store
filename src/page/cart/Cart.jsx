@@ -48,15 +48,15 @@ const Cart = () => {
                         <tbody>
                             <tr>
                                 <td>subtotal</td>
-                                <td>N{amount.toFixed(2)}</td>
+                                <td>${amount.toFixed(2)}</td>
                             </tr>
                             <tr>
                                 <td>shipping fee</td>
-                                <td>N5.99</td>
+                                <td>$5.99</td>
                             </tr>
                             {amount > 0 && <tr className="total">
                                 <td>total</td>
-                                <td>N{totalAmt}</td>
+                                <td>${totalAmt}</td>
                             </tr>}
                         </tbody>
                     </table>

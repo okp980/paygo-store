@@ -15,16 +15,12 @@ export const Header = styled.div`
 		text-transform: uppercase;
 		text-align: center;
 		color: ${({ theme }) => theme.colors.gray100};
-		padding: 1em 0;
 	}
 `;
 export const ProductLIst = styled.ul`
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	grid-gap: 1em;
-	@media screen and (min-width: 960px) {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 `;
 export const ScrollTop = styled.div`
 	background-color: ${({ theme }) => theme.colors.gray800};
