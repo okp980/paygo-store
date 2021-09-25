@@ -8,7 +8,6 @@ import { Redirect, useLocation } from "react-router-dom";
 
 
 const Checkout = ({ closeModal, amount }) => {
-
     const { authenticated, currentUser } = useSelector(state => state.auth)
     const location = useLocation()
 

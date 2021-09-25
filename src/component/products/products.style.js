@@ -34,6 +34,9 @@ export const ScrollTop = styled.div`
 	bottom: 40px;
 	right: 50px;
 	cursor: pointer;
+	.icon {
+		margin: 0;
+	}
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.gray300};
 	}

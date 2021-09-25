@@ -48,13 +48,32 @@ export const Items = styled.div`
 				&:last-of-type {
 					border-bottom: none;
 				}
+				.delete {
+					background-color: ${({ theme }) => theme.colors.gray500};
+					width: 30px;
+					height: 30px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					cursor: pointer;
+
+					&:hover {
+						background-color: ${({ theme }) => theme.colors.gray700};
+					}
+				}
+
+				.delete-icon {
+					margin: 0;
+					font-size: 15px;
+				}
 				td {
 					text-align: center;
 					padding: 1em 0;
 
-					&:first-of-type {
+					/* &:first-of-type {
 						text-align: left;
-					}
+					} */
 
 					button {
 						display: flex;
@@ -74,6 +93,10 @@ export const Items = styled.div`
 		display: flex;
 		align-items: center;
 		margin-left: 1em;
+	}
+
+	.icon {
+		color: ${({ theme }) => theme.colors.gray700};
 	}
 `;
 export const Summary = styled.div`
@@ -99,6 +122,7 @@ export const Summary = styled.div`
 					padding: 1em 0.5em;
 					color: ${({ theme }) => theme.colors.gray500};
 					font-weight: 600;
+					text-transform: uppercase;
 				}
 
 				.table {

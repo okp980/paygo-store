@@ -39,7 +39,7 @@ const Cart = () => {
                         {items.map(itm => <CartItem key={itm.id} id={itm.id} item={itm} />)}
                     </tbody>
                 </table>
-                <Link to="/"><BsArrowLeft />bact to store</Link>
+                <Link to="/"><BsArrowLeft className="icon" />bact to store</Link>
             </Items>
             <Summary>
                 <div>

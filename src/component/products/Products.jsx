@@ -62,7 +62,7 @@ const Products = () => {
             <ProductLIst>
                 {products.map((item) => <Product key={item.id} product={item} />)}
             </ProductLIst>
-            <ScrollTop onClick={() => window.scrollTo(0, 0)}><RiArrowUpSLine /></ScrollTop>
+            <ScrollTop onClick={() => window.scrollTo(0, 0)}><RiArrowUpSLine className="icon" /></ScrollTop>
         </Section>
         <LoadMoreSection>
             {endOfPage ? <p>end of products</p> :
