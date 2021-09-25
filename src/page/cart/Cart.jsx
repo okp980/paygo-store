@@ -10,7 +10,8 @@ import CartItem from '../../component/cartItem/CartItem'
 
 const Cart = () => {
     const [checkout, setCheckout] = useState(false)
-    const { items } = useSelector(state => state.cart)
+    const { items, amount } = useSelector(state => state.cart)
+    const totalAmt = (amount - 5.99).toFixed(2)
 
     function handleOpenCheckoutModal() {
         setCheckout(true)
@@ -47,26 +48,22 @@ const Cart = () => {
                         <tbody>
                             <tr>
                                 <td>subtotal</td>
-                                <td>N2,000</td>
+                                <td>N{amount.toFixed(2)}</td>
                             </tr>
                             <tr>
-                                <td>shipping</td>
-                                <td>N599</td>
+                                <td>shipping fee</td>
+                                <td>N5.99</td>
                             </tr>
-                            <tr>
-                                <td>add coupon code</td>
-
-                            </tr>
-                            <tr>
+                            {amount > 0 && <tr className="total">
                                 <td>total</td>
-                                <td>N2,599</td>
-                            </tr>
+                                <td>N{totalAmt}</td>
+                            </tr>}
                         </tbody>
                     </table>
-                    <Button onClick={handleOpenCheckoutModal}>checkout</Button>
+                    <Button disabled={amount === 0} onClick={handleOpenCheckoutModal}>checkout</Button>
                 </div>
             </Summary>
-            {checkout && <Checkout closeModal={handleCloseCheckoutModal} />}
+            {checkout && <Checkout closeModal={handleCloseCheckoutModal} amount={totalAmt} />}
         </Section>
     )
 }

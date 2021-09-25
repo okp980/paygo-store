@@ -34,6 +34,7 @@ const CartSlice = createSlice({
 				);
 				state.items = newItems;
 				state.amount += product.price;
+				state.amount = +state.amount.toFixed(2);
 			}
 		},
 		deleteFromCart: (state, action) => {
@@ -46,6 +47,7 @@ const CartSlice = createSlice({
 			);
 			state.items = filteredItems;
 			state.amount -= calculatedProductAmount;
+			state.amount = +state.amount.toFixed(2);
 		},
 		increaseQty: (state, action) => {
 			// accept product from payload
@@ -68,6 +70,7 @@ const CartSlice = createSlice({
 			);
 			state.items = increasedItemQty;
 			state.amount += isProduct.price;
+			state.amount = +state.amount.toFixed(2);
 		},
 		decreaseQty: (state, action) => {
 			// accept product from payload
@@ -90,7 +93,8 @@ const CartSlice = createSlice({
 					: prod
 			);
 			state.items = decreasedItemQty;
-			state.amount += isProduct.price;
+			state.amount -= isProduct.price;
+			state.amount = +state.amount.toFixed(2);
 		},
 	},
 });

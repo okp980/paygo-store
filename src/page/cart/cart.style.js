@@ -101,7 +101,7 @@ export const Summary = styled.div`
 					font-weight: 600;
 				}
 
-				&:last-of-type {
+				.table {
 					background-color: ${({ theme }) => theme.colors.gray400};
 				}
 			}

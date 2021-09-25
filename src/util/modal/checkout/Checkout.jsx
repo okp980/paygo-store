@@ -5,7 +5,7 @@ import { Modal, Overlay } from "./checkout.style"
 import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 
 
-const Checkout = ({ closeModal }) => {
+const Checkout = ({ closeModal, amount }) => {
 
     const userDetails = {
         fullName: '',
@@ -17,7 +17,7 @@ const Checkout = ({ closeModal }) => {
     const config = {
         public_key: process.env.REACT_APP_FLUTTERID,
         tx_ref: Date.now(),
-        amount: 100,
+        amount: amount,
         currency: 'NGN',
         payment_options: 'card,mobilemoney,ussd',
         customer: {

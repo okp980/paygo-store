@@ -14,6 +14,16 @@ const Btn = styled.button`
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.gray700};
 		border: 2px solid ${({ theme }) => theme.colors.gray700};
+
+		:disabled {
+			background-color: ${({ theme }) => theme.colors.gray900};
+			border: 2px solid ${({ theme }) => theme.colors.gray900};
+		}
+	}
+
+	:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
 	}
 
 	${({ secondary }) =>
