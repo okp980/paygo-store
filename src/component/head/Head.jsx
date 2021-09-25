@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dropdown, Header, MenuItem, Nav, NavMenuUser, UserNavLink, } from "./head.style"
+import { Cart, Dropdown, Header, Nav, NavMenuUser, UserNavLink, } from "./head.style"
 import { BsPersonFill } from 'react-icons/bs';
 import { FiShoppingCart } from "react-icons/fi";
 import { useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ import Card from "../../util/card/Card";
 
 
 const Head = () => {
+    const cartQty = useSelector(state => state.cart.items.reduce((preVal, currVal) => preVal + currVal.quantity, 0))
     const [toggleOpen, setToggleOpen] = useState(false)
     const { authenticated } = useSelector(state => state.auth);
 
@@ -18,8 +19,6 @@ const Head = () => {
             <div>
 
                 <Link to="/"><h3>PAYGO STORE</h3></Link>
-
-
                 <Nav>
                     <NavMenuUser>
                         <UserNavLink onClick={() => setToggleOpen(prev => !prev)}>
@@ -37,7 +36,10 @@ const Head = () => {
                                 </Card>
                             </Dropdown>
                         </UserNavLink>
-                        <MenuItem ><Link to='/cart'><FiShoppingCart /></Link></MenuItem>
+                        <Cart >
+                            <Link to='/cart'><FiShoppingCart /></Link>
+                            <div className="counter">{cartQty}</div>
+                        </Cart>
                     </NavMenuUser>
                 </Nav>
             </div>

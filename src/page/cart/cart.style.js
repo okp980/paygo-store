@@ -52,6 +52,15 @@ export const Items = styled.div`
 					text-align: center;
 					padding: 1em 0;
 
+					&:first-of-type {
+						text-align: left;
+					}
+
+					button {
+						display: flex;
+						align-self: center;
+					}
+
 					a {
 						display: unset;
 						margin-left: 0;

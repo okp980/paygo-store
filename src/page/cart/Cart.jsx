@@ -1,13 +1,16 @@
 import Button from "../../util/button/Button"
 import { Header, Items, Section, Summary } from "./cart.style"
-import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import { BsArrowLeft } from "react-icons/bs";
 import Checkout from "../../util/modal/checkout/Checkout";
 import { useState } from "react";
+import { useSelector } from 'react-redux'
+import CartItem from '../../component/cartItem/CartItem'
+
 
 const Cart = () => {
     const [checkout, setCheckout] = useState(false)
+    const { items } = useSelector(state => state.cart)
 
     function handleOpenCheckoutModal() {
         setCheckout(true)
@@ -32,17 +35,7 @@ const Cart = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><Link to='/product'>Analog Magazine Rack</Link></td>
-                            <td>N1,399</td>
-                            <td><input type="number" min="1" max="10" /></td>
-                            <td>
-                                N3,399
-                            </td>
-                            <td><Button><MdDelete /></Button></td>
-
-                        </tr>
-
+                        {items.map(itm => <CartItem key={itm.id} id={itm.id} name={itm.name} quantity={itm.quantity} price={itm.price} totalPrice={itm.totalPrice} />)}
                     </tbody>
                 </table>
                 <Link to="/"><BsArrowLeft />bact to store</Link>
@@ -51,22 +44,24 @@ const Cart = () => {
                 <div>
                     <h4>order summary</h4>
                     <table>
-                        <tr>
-                            <td>subtotal</td>
-                            <td>N2,000</td>
-                        </tr>
-                        <tr>
-                            <td>shipping</td>
-                            <td>N599</td>
-                        </tr>
-                        <tr>
-                            <td>add coupon code</td>
+                        <tbody>
+                            <tr>
+                                <td>subtotal</td>
+                                <td>N2,000</td>
+                            </tr>
+                            <tr>
+                                <td>shipping</td>
+                                <td>N599</td>
+                            </tr>
+                            <tr>
+                                <td>add coupon code</td>
 
-                        </tr>
-                        <tr>
-                            <td>total</td>
-                            <td>N2,599</td>
-                        </tr>
+                            </tr>
+                            <tr>
+                                <td>total</td>
+                                <td>N2,599</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <Button onClick={handleOpenCheckoutModal}>checkout</Button>
                 </div>

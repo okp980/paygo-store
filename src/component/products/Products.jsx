@@ -42,7 +42,6 @@ const Products = () => {
         const newProducts = data.products.slice(indexOfFirstProduct, indexOfLastProduct)
         setProducts([...products, ...newProducts])
         setCurrentPage(page => page + 1)
-        console.log(indexOfLastProduct);
     }
 
 
@@ -67,7 +66,7 @@ const Products = () => {
         <Header><h1>store</h1></Header>
         <Section>
             <ProductLIst>
-                {products.map((item, index) => <Product key={index} img={item.imageUrl} name={item.name} brandName={item.brandName} currentPrice={item.price.current.text} previousPrice={item.price.previous.text} />)}
+                {products.map((item) => <Product key={item.id} id={item.id} img={item.imageUrl} name={item.name} brandName={item.brandName} currentPrice={item.price.current.text} price={item.price.current.value} previousPrice={item.price.previous.text} />)}
             </ProductLIst>
             <ScrollTop onClick={() => window.scrollTo(0, 0)}><RiArrowUpSLine /></ScrollTop>
         </Section>
