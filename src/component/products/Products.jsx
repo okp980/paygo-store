@@ -17,29 +17,23 @@ const Products = () => {
 
 
     const { isLoading, isError, data } = useQuery('products', () => {
-        return fetch("https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US", {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": process.env.REACT_APP_RAPIDAPI_HOST,
-                "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY
-            }
-        }).then(res =>
+        return fetch("https://fakestoreapi.com/products").then(res =>
             res.json())
     })
 
     useEffect(() => {
         if (!data) return
-        setProducts(data.products.slice(0, 6))
+        setProducts(data.slice(0, 6))
     }, [data])
 
     function paginateProducts() {
         const indexOfLastProduct = currentPage * 6;
-        if (indexOfLastProduct > 48) {
+        if (indexOfLastProduct > 20) {
             setEndOfPage(true)
             return
         }
         const indexOfFirstProduct = indexOfLastProduct - 6;
-        const newProducts = data.products.slice(indexOfFirstProduct, indexOfLastProduct)
+        const newProducts = data.slice(indexOfFirstProduct, indexOfLastProduct)
         setProducts([...products, ...newProducts])
         setCurrentPage(page => page + 1)
     }
@@ -66,7 +60,7 @@ const Products = () => {
         <Header><h1>store</h1></Header>
         <Section>
             <ProductLIst>
-                {products.map((item) => <Product key={item.id} id={item.id} img={item.imageUrl} name={item.name} brandName={item.brandName} currentPrice={item.price.current.text} price={item.price.current.value} previousPrice={item.price.previous.text} />)}
+                {products.map((item) => <Product key={item.id} product={item} />)}
             </ProductLIst>
             <ScrollTop onClick={() => window.scrollTo(0, 0)}><RiArrowUpSLine /></ScrollTop>
         </Section>

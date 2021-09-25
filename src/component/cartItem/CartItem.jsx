@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { CartActions } from "../../redux/slice/cartSlice";
 import Counter from "../../util/counter/Counter";
-const CartItem = ({ price, name, quantity, totalPrice, id }) => {
+const CartItem = ({ item }) => {
+    const { price, title, quantity, totalPrice, id } = item
     const dispatch = useDispatch()
     return (
         <tr>
-            <td><Link to='/product'>{name}</Link></td>
+            <td><Link to='/product'>{title}</Link></td>
             <td>{price}</td>
             <td><Counter value={quantity} id={id} /></td>
             <td>
-                ${totalPrice}
+                ${totalPrice.toFixed(2)}
             </td>
             <td><Button onClick={() => dispatch(CartActions.deleteFromCart(id))}><MdDelete /></Button></td>
         </tr>

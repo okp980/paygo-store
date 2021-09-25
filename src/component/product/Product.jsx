@@ -4,7 +4,7 @@ import Button from '../../util/button/Button'
 import { useDispatch } from 'react-redux'
 import { CartActions } from '../../redux/slice/cartSlice'
 
-const Product = ({ id, img, name, brandName, currentPrice, previousPrice, price }) => {
+const Product = ({ product }) => {
     const dispatch = useDispatch()
     function truncateString(str) {
         if (str.length > 30) {
@@ -17,14 +17,14 @@ const Product = ({ id, img, name, brandName, currentPrice, previousPrice, price 
         <ProductCard>
             <Card>
                 <div className="image">
-                    <img src={`https://${img}`} alt={name} />
+                    <img src={product.image} alt={product.title} />
                 </div>
                 <div className="card-details">
-                    <p>{truncateString(name)}</p>
-                    <small>{brandName}</small>
-                    <h5>{currentPrice}<span>{previousPrice}</span></h5>
+                    <p>{truncateString(product.title)}</p>
+                    <small>{product.category}</small>
+                    <h5>{product.price}</h5>
                     <div className="btn-group">
-                        <Button onClick={() => dispatch(CartActions.addToCart({ id, img, name, price: +price }))}>add to cart</Button>
+                        <Button onClick={() => dispatch(CartActions.addToCart({ ...product, price: +product.price }))}>add to cart</Button>
                     </div>
                 </div>
             </Card>

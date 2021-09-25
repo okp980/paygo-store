@@ -35,7 +35,7 @@ const Cart = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {items.map(itm => <CartItem key={itm.id} id={itm.id} name={itm.name} quantity={itm.quantity} price={itm.price} totalPrice={itm.totalPrice} />)}
+                        {items.map(itm => <CartItem key={itm.id} id={itm.id} item={itm} />)}
                     </tbody>
                 </table>
                 <Link to="/"><BsArrowLeft />bact to store</Link>
