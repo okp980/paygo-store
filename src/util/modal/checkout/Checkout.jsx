@@ -8,12 +8,13 @@ import { Redirect, useLocation } from "react-router-dom";
 
 
 const Checkout = ({ closeModal, amount }) => {
-    const isAuthenticated = useSelector(state => state.auth.authenticated)
+
+    const { authenticated, currentUser } = useSelector(state => state.auth)
     const location = useLocation()
 
     const userDetails = {
-        fullName: '',
-        email: '',
+        fullName: currentUser.displayName,
+        email: currentUser.email,
         phoneNumber: ''
     }
     const [details, setDetails] = useState(userDetails)
@@ -55,7 +56,7 @@ const Checkout = ({ closeModal, amount }) => {
         setDetails(userDetails)
     }
 
-    if (!isAuthenticated) {
+    if (!authenticated) {
         return <Redirect
             to={{
                 pathname: "/signIn",
