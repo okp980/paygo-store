@@ -5,7 +5,6 @@ const GlobalStyles = createGlobalStyle`
   v2.0 | 20110126
   License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
 html,
 body,
