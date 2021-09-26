@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-	background-color: ${({ theme }) => theme.colors.gray100};
+	background-color: ${({ theme }) => theme.colors.cartItemBody};
 	@media screen and (min-width: 960px) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -12,7 +12,7 @@ export const Section = styled.section`
 `;
 export const Header = styled.div`
 	grid-area: header;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.gray300};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.light100};
 	h3 {
 		text-align: center;
 		padding: 0.2em 0;
@@ -23,6 +23,7 @@ export const ImageDisplay = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 0.5em 0;
 
 	.image {
 		width: 250px;
@@ -41,7 +42,9 @@ export const ImageDescription = styled.div`
 
 	p {
 		padding-bottom: 1.5em;
-		border-bottom: 1px solid ${({ theme }) => theme.colors.gray300};
+		border-bottom: 1px solid ${({ theme }) => theme.colors.light100};
+		text-align: justify;
+		color: ${({ theme }) => theme.colors.light100};
 	}
 
 	h4 {

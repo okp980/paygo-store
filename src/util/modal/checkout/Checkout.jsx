@@ -12,8 +12,8 @@ const Checkout = ({ closeModal, amount }) => {
     const location = useLocation()
 
     const userDetails = {
-        fullName: currentUser.displayName,
-        email: currentUser.email,
+        fullName: currentUser?.displayName,
+        email: currentUser?.email,
         phoneNumber: ''
     }
     const [details, setDetails] = useState(userDetails)
@@ -62,12 +62,22 @@ const Checkout = ({ closeModal, amount }) => {
                 state: { from: location }
             }}
         />
+
     }
 
     return (
         <>
             {ReactDOM.createPortal(<Overlay onClick={closeModal} />, document.getElementById("overlay"))}
             {ReactDOM.createPortal(<Modal>
+                <div className="info">
+                    <p>please use the following details to make a virtual payment.</p>
+                    <p><span>Card Number:</span>5531 8866 5214 2950</p>
+                    <p><span>cvv:</span>564</p>
+                    <p><span>Expiry:</span>09/32</p>
+                    <p><span>Pin:</span>3310</p>
+                    <p><span>OTP:</span>12345</p>
+                </div>
+                <h3>checkout form</h3>
                 <form onSubmit={handleSubmit}>
                     <div className="form-control">
                         <label htmlFor="fullName">full name</label>
@@ -81,7 +91,7 @@ const Checkout = ({ closeModal, amount }) => {
                         <label htmlFor="phoneNumber">phone number</label>
                         <input type="tel" name="phoneNumber" id="phoneNumber" value={details.phoneNumber} onChange={handleChange} required />
                     </div>
-                    <Button >proceed to payment</Button>
+                    <Button secondary>proceed to payment</Button>
                 </form>
             </Modal>, document.getElementById("checkout-modal"))}
         </>

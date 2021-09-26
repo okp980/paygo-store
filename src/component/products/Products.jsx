@@ -44,7 +44,7 @@ const Products = () => {
         <LoadingDiv>
             <Loader
                 type="TailSpin"
-                color="#000000"
+                color="#000019"
                 height={50}
                 width={50}
             />

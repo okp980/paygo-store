@@ -1,14 +1,13 @@
 const theme = {
 	colors: {
-		gray100: "#E6E6E6",
-		gray200: "#CCCCCC",
-		gray300: "#B3B3B3",
-		gray400: "#999999",
-		gray500: "#808080",
-		gray600: "#666666",
-		gray700: "#4C4C4C",
-		gray800: "#333333",
-		gray900: "#191919",
+		light100: "#E6E6FF",
+		light200: "#ccccff",
+		light300: "#b3b3ff",
+		dark100: "#000019",
+		dark200: "#000033",
+		dark300: "#00004c",
+		cartItemBody: "#8080ff",
+		cartItemHead: "#000080",
 	},
 };
 

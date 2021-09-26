@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
 const Btn = styled.button`
-	background-color: ${({ theme }) => theme.colors.gray900};
-	border: 2px solid ${({ theme }) => theme.colors.gray900};
-	color: ${({ theme }) => theme.colors.gray100};
+	background-color: ${({ theme }) => theme.colors.dark100};
+	border: 2px solid ${({ theme }) => theme.colors.dark100};
+	color: ${({ theme }) => theme.colors.light200};
 	text-transform: capitalize;
 	padding: 0.7em 1.8em;
 	text-transform: uppercase;
@@ -12,12 +12,12 @@ const Btn = styled.button`
 	margin-right: 0.5em;
 
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.gray700};
-		border: 2px solid ${({ theme }) => theme.colors.gray700};
+		background-color: ${({ theme }) => theme.colors.dark300};
+		border: 2px solid ${({ theme }) => theme.colors.dark300};
 
 		:disabled {
-			background-color: ${({ theme }) => theme.colors.gray900};
-			border: 2px solid ${({ theme }) => theme.colors.gray900};
+			background-color: ${({ theme }) => theme.colors.light200};
+			border: 2px solid ${({ theme }) => theme.colors.light200};
 		}
 	}
 
@@ -29,14 +29,13 @@ const Btn = styled.button`
 	${({ secondary }) =>
 		secondary &&
 		css`
-			background-color: transparent;
-			border: 2px solid ${({ theme }) => theme.colors.gray900};
-			color: ${({ theme }) => theme.colors.gray900};
+			background-color: ${({ theme }) => theme.colors.light100};
+			border: 2px solid ${({ theme }) => theme.colors.light100};
+			color: ${({ theme }) => theme.colors.dark300};
 
 			&:hover {
-				background-color: ${({ theme }) => theme.colors.gray700};
-				border: 2px solid ${({ theme }) => theme.colors.gray700};
-				color: ${({ theme }) => theme.colors.gray100};
+				background-color: ${({ theme }) => theme.colors.light300};
+				border: 2px solid ${({ theme }) => theme.colors.light300};
 			}
 		`}
 `;

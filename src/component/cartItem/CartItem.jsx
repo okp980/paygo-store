@@ -1,4 +1,3 @@
-import Button from "../../util/button/Button"
 import { FaTimes } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux";
@@ -8,8 +7,8 @@ const CartItem = ({ item }) => {
     const { price, title, quantity, totalPrice, id } = item
     const dispatch = useDispatch()
     function truncateString(str) {
-        if (str.length > 20) {
-            return str.slice(0, 20) + "...";
+        if (str.length > 30) {
+            return str.slice(0, 30) + "...";
         } else {
             return str;
         }
@@ -17,7 +16,7 @@ const CartItem = ({ item }) => {
     return (
         <tr>
             <td><Link to={`/${id}`}>{truncateString(title)}</Link></td>
-            <td>{price}</td>
+            <td>${price}</td>
             <td><Counter value={quantity} id={id} /></td>
             <td>
                 ${totalPrice.toFixed(2)}

@@ -19,23 +19,20 @@ export const ProductCard = styled.li`
 			width: 250px;
 			a {
 				display: block;
+				color: ${({ theme }) => theme.colors.light100};
+
+				&:hover {
+					text-decoration: underline;
+				}
 			}
-			background-color: ${({ theme }) => theme.colors.gray300};
+			background-color: ${({ theme }) => theme.colors.dark300};
 			padding: 0.5em;
 			h5 {
-				span {
-					color: ${({ theme }) => theme.colors.gray400};
-					text-decoration: line-through;
-					margin-left: 0.5em;
-				}
 			}
 			small {
 				font-weight: 600;
-				color: ${({ theme }) => theme.colors.gray500};
+				color: ${({ theme }) => theme.colors.light300};
 				text-transform: uppercase;
-			}
-			.btn-group {
-				display: flex;
 			}
 		}
 	}

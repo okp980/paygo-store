@@ -23,7 +23,7 @@ const SignIn = () => {
     return (
         <Section>
             <p>Sign in with your google account to continue.</p>
-            <Button onClick={handleSignInUser}><GrGoogle />sign in with google</Button>
+            <Button onClick={handleSignInUser}><GrGoogle className="icon" />sign in with google</Button>
         </Section>
     )
 }

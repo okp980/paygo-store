@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-	background-color: ${({ theme }) => theme.colors.gray100};
 	padding: 2em 0.5em;
 	margin: 0.5em 0;
 	button {
@@ -10,11 +9,11 @@ export const Section = styled.section`
 	}
 `;
 export const Header = styled.div`
-	background-color: ${({ theme }) => theme.colors.gray800};
+	background-color: ${({ theme }) => theme.colors.light300};
 	h1 {
 		text-transform: uppercase;
 		text-align: center;
-		color: ${({ theme }) => theme.colors.gray100};
+		color: ${({ theme }) => theme.colors.dark100};
 	}
 `;
 export const ProductLIst = styled.ul`
@@ -23,7 +22,7 @@ export const ProductLIst = styled.ul`
 	justify-content: center;
 `;
 export const ScrollTop = styled.div`
-	background-color: ${({ theme }) => theme.colors.gray800};
+	background-color: ${({ theme }) => theme.colors.dark200};
 	display: flex;
 	width: 40px;
 	height: 40px;
@@ -38,7 +37,7 @@ export const ScrollTop = styled.div`
 		margin: 0;
 	}
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.gray300};
+		background-color: ${({ theme }) => theme.colors.dark300};
 	}
 `;
 

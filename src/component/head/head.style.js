@@ -4,7 +4,7 @@ export const Header = styled.header`
 	z-index: 2;
 	position: sticky;
 	top: 0;
-	background-color: var(--clr-dark);
+	background-color: ${({ theme }) => theme.colors.dark100};
 	div {
 		padding: 0.7rem 1.3remgit;
 		max-width: 1400px;
@@ -14,7 +14,7 @@ export const Header = styled.header`
 		align-items: center;
 	}
 	h3 {
-		color: var(--clr-white);
+		color: ${({ theme }) => theme.colors.light300};
 	}
 `;
 
@@ -23,13 +23,13 @@ export const Cart = styled.li`
 	position: relative;
 
 	.counter {
+		background-color: ${({ theme }) => theme.colors.light100};
 		font-size: 0.6em;
 		padding: 0.6em;
-		color: white;
+		color: ${({ theme }) => theme.colors.dark100};
 		position: absolute;
 		bottom: 5%;
 		right: 0%;
-		background-color: #000000;
 		line-height: 0.75em;
 		display: flex;
 		align-items: center;
@@ -50,16 +50,16 @@ export const UserNavLink = styled.li`
 	margin-left: 2.5em;
 	span,
 	a {
-		color: ${({ theme }) => theme.colors.gray100};
+		color: ${({ theme }) => theme.colors.light300};
 		padding: 0.2em 0.4em;
-		border: 1px solid ${({ theme }) => theme.colors.gray100};
+		border: 2px solid ${({ theme }) => theme.colors.light300};
 		border-radius: 3px;
 		text-transform: uppercase;
 		cursor: pointer;
 
 		&:hover {
-			background-color: ${({ theme }) => theme.colors.gray100};
-			color: ${({ theme }) => theme.colors.gray700};
+			background-color: ${({ theme }) => theme.colors.light300};
+			color: ${({ theme }) => theme.colors.dark200};
 		}
 	}
 `;

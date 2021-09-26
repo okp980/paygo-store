@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-	background-color: ${({ theme }) => theme.colors.gray100};
+	background-color: ${({ theme }) => theme.colors.light200};
 	padding: 2em 0.5em;
 
 	@media screen and (min-width: 960px) {
@@ -16,10 +16,11 @@ export const Section = styled.section`
 
 export const Header = styled.div`
 	grid-area: header;
-	/* border-bottom: 1px solid ${({ theme }) => theme.colors.gray300}; */
 	h3 {
 		text-align: center;
 		padding: 0.2em 0;
+		color: ${({ theme }) => theme.colors.dark200};
+		text-transform: uppercase;
 	}
 `;
 export const Items = styled.div`
@@ -31,25 +32,30 @@ export const Items = styled.div`
 		margin-bottom: 2.5em;
 
 		thead {
-			background-color: ${({ theme }) => theme.colors.gray200};
+			background-color: ${({ theme }) => theme.colors.cartItemHead};
 			tr {
 				th {
 					padding: 1em 0;
 					text-align: center;
 					text-transform: uppercase;
 					font-weight: 600;
+					&:first-of-type {
+						text-align: left;
+						padding-left: 0.8em;
+					}
 				}
 			}
 		}
 
 		tbody {
+			background-color: ${({ theme }) => theme.colors.cartItemBody};
 			tr {
-				border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
+				border-bottom: 1px solid ${({ theme }) => theme.colors.light200};
 				&:last-of-type {
 					border-bottom: none;
 				}
 				.delete {
-					background-color: ${({ theme }) => theme.colors.gray500};
+					background-color: #db4437;
 					width: 30px;
 					height: 30px;
 					display: flex;
@@ -59,7 +65,7 @@ export const Items = styled.div`
 					cursor: pointer;
 
 					&:hover {
-						background-color: ${({ theme }) => theme.colors.gray700};
+						background-color: ${({ theme }) => theme.colors.dark300};
 					}
 				}
 
@@ -71,9 +77,10 @@ export const Items = styled.div`
 					text-align: center;
 					padding: 1em 0;
 
-					/* &:first-of-type {
+					&:first-of-type {
 						text-align: left;
-					} */
+						padding-left: 0.8em;
+					}
 
 					button {
 						display: flex;
@@ -81,8 +88,12 @@ export const Items = styled.div`
 					}
 
 					a {
+						color: ${({ theme }) => theme.colors.light100};
 						display: unset;
 						margin-left: 0;
+						&:hover {
+							text-decoration: underline;
+						}
 					}
 				}
 			}
@@ -90,20 +101,18 @@ export const Items = styled.div`
 	}
 
 	a {
-		display: flex;
-		align-items: center;
-		margin-left: 1em;
+		padding-left: 1em;
 	}
 
 	.icon {
-		color: ${({ theme }) => theme.colors.gray700};
+		color: ${({ theme }) => theme.colors.dark100};
 	}
 `;
 export const Summary = styled.div`
 	grid-area: summary;
 
 	div {
-		background-color: ${({ theme }) => theme.colors.gray300};
+		background-color: ${({ theme }) => theme.colors.dark300};
 		padding: 1em;
 		h4 {
 			text-align: center;
@@ -120,13 +129,8 @@ export const Summary = styled.div`
 			tr {
 				td {
 					padding: 1em 0.5em;
-					color: ${({ theme }) => theme.colors.gray500};
 					font-weight: 600;
 					text-transform: uppercase;
-				}
-
-				.table {
-					background-color: ${({ theme }) => theme.colors.gray400};
 				}
 			}
 		}

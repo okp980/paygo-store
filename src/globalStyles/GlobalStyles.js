@@ -112,6 +112,7 @@ section {
 }
 body {
 	line-height: 1;
+	overflow-x: hidden;
 }
 ol,
 ul {
@@ -222,8 +223,8 @@ h5 {
 }
 
 body {
-	background-color: #eee;
-	color: var(--clr-dark);
+	background-color: ${({ theme }) => theme.colors.light100};
+	color: ${({ theme }) => theme.colors.light100};
 	font-size: var(--body-font-size);
 	font-weight: 400;
 	font-family: "Open Sans", sans-serif;
@@ -234,10 +235,15 @@ button{
 }
 
 
- 
+	label{
+		font-size: var(--fs-300);
+		margin-bottom: .5em;
+	}
+
     input{
         border: 1px solid ${({ theme }) => theme.colors.gray400};
-	/* padding: 0.8em; */
+	padding: 0.2em;
+	border-radius: 3px;
 	outline: none;
 	margin-bottom: 0.5em;
 	color: ${({ theme }) => theme.colors.gray700};
@@ -251,7 +257,17 @@ button{
     .react--icons {
 	font-size: var(--fs-600);
 	margin-right: 0.9rem;
-	color: var(--clr-white);
+	color: ${({ theme }) => theme.colors.light300};
+}
+
+@keyframes checkout {
+   0% { 
+    transform: translateX(50%);
+  } 
+   
+  100% { 
+    transform: translateX(0);
+  } 
 }
 
 `;

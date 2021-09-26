@@ -25,7 +25,7 @@ const Product = ({ product }) => {
                     <small>{product.category}</small>
                     <h5>${product.price}</h5>
                     <div className="btn-group">
-                        <Button onClick={() => dispatch(CartActions.addToCart({ ...product, price: +product.price }))}>add to cart</Button>
+                        <Button secondary onClick={() => dispatch(CartActions.addToCart({ ...product, price: +product.price }))}>add to cart</Button>
                     </div>
                 </div>
             </Card>

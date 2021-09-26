@@ -16,14 +16,35 @@ export const Modal = styled.div`
 	max-width: 500px;
 	min-height: 100%;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	z-index: 999;
-	background-color: ${({ theme }) => theme.colors.gray100};
+	animation: checkout 1s ease-in-out forwards;
+	background-color: ${({ theme }) => theme.colors.dark300};
 	padding: 1em;
 
+	.info {
+		background-color: ${({ theme }) => theme.colors.light300};
+		border: 3px solid ${({ theme }) => theme.colors.light100};
+		padding: 1em;
+		border-radius: 5px;
+
+		p {
+			span {
+				font-weight: 600;
+				margin-right: 0.5em;
+			}
+		}
+	}
+
 	form {
+		border: 1px solid ${({ theme }) => theme.colors.light300};
+		padding: 3em 0.5em;
+		width: 350px;
 		.form-control {
 			display: block;
+			margin-bottom: 1em;
 
 			label {
 				display: block;

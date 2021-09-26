@@ -1,17 +1,6 @@
 import styled from "styled-components";
 
 export const CounterStyled = styled.div`
-	body {
-		font-family: "Open Sans", sans-serif;
-		font-size: 13px;
-		font-weight: 400;
-		color: #8184a1;
-		line-height: 1.3;
-	}
-	h4 {
-		margin-top: 0;
-		margin-bottom: 50px;
-	}
 	.quantity {
 		display: flex;
 		align-items: center;
@@ -24,10 +13,11 @@ export const CounterStyled = styled.div`
 		width: 22px;
 		height: 23px;
 		margin: 0;
-		background: #dee0ee;
+		background: ${({ theme }) => theme.colors.cartItemHead};
 		text-decoration: none;
 		text-align: center;
 		line-height: 23px;
+		color: ${({ theme }) => theme.colors.light100};
 	}
 	.quantity__minus:hover,
 	.quantity__plus:hover {
@@ -42,16 +32,13 @@ export const CounterStyled = styled.div`
 	}
 	.quantity__input {
 		width: 32px;
-		height: 19px;
+		height: 23px;
 		margin: 0;
 		padding: 0;
 		text-align: center;
-		border-top: 2px solid #dee0ee;
-		border-bottom: 2px solid #dee0ee;
-		border-left: 1px solid #dee0ee;
-		border-right: 2px solid #dee0ee;
 		background: #fff;
-		color: #8184a1;
+		color: ${({ theme }) => theme.colors.cartItemHead};
+		border-radius: 0;
 	}
 	.quantity__minus:link,
 	.quantity__plus:link {

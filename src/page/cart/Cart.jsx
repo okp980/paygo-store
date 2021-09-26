@@ -1,7 +1,6 @@
 import Button from "../../util/button/Button"
 import { Header, Items, Section, Summary } from "./cart.style"
 import { Link } from 'react-router-dom'
-import { BsArrowLeft } from "react-icons/bs";
 import Checkout from "../../util/modal/checkout/Checkout";
 import { useState } from "react";
 import { useSelector } from 'react-redux'
@@ -39,7 +38,7 @@ const Cart = () => {
                         {items.map(itm => <CartItem key={itm.id} id={itm.id} item={itm} />)}
                     </tbody>
                 </table>
-                <Link to="/"><BsArrowLeft className="icon" />bact to store</Link>
+                <Link to="/">bact to store</Link>
             </Items>
             <Summary>
                 <div>
@@ -60,7 +59,7 @@ const Cart = () => {
                             </tr>}
                         </tbody>
                     </table>
-                    <Button disabled={amount === 0} onClick={handleOpenCheckoutModal}>checkout</Button>
+                    <Button secondary disabled={amount === 0} onClick={handleOpenCheckoutModal}>checkout</Button>
                 </div>
             </Summary>
             {checkout && <Checkout closeModal={handleCloseCheckoutModal} amount={totalAmt} />}
