@@ -113,6 +113,7 @@ section {
 body {
 	line-height: 1;
 	overflow-x: hidden;
+	min-width: 260px;
 }
 ol,
 ul {
@@ -241,7 +242,7 @@ button{
 	}
 
     input{
-        border: 1px solid ${({ theme }) => theme.colors.gray400};
+        border: 1px solid ${({ theme }) => theme.colors.light300};
 	padding: 0.2em;
 	border-radius: 3px;
 	outline: none;

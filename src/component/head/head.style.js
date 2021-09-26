@@ -6,7 +6,7 @@ export const Header = styled.header`
 	top: 0;
 	background-color: ${({ theme }) => theme.colors.dark100};
 	div {
-		padding: 0.7rem 1.3remgit;
+		padding: 0.7rem 1.3rem;
 		max-width: 1400px;
 		margin: 0 auto;
 		display: flex;
@@ -15,6 +15,13 @@ export const Header = styled.header`
 	}
 	h3 {
 		color: ${({ theme }) => theme.colors.light300};
+
+		@media screen and (max-width: 378px) {
+			font-size: 16px;
+		}
+		@media screen and (max-width: 378px) {
+			font-size: 12px;
+		}
 	}
 `;
 
@@ -60,6 +67,13 @@ export const UserNavLink = styled.li`
 		&:hover {
 			background-color: ${({ theme }) => theme.colors.light300};
 			color: ${({ theme }) => theme.colors.dark200};
+		}
+		@media screen and (max-width: 378px) {
+			font-size: 14px;
+		}
+		@media screen and (max-width: 378px) {
+			font-size: 12px;
+			border: none;
 		}
 	}
 `;

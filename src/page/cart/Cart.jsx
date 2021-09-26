@@ -1,10 +1,11 @@
 import Button from "../../util/button/Button"
-import { Header, Items, Section, Summary } from "./cart.style"
+import { Header, Items, Section, SmallerScreenItems, Summary } from "./cart.style"
 import { Link } from 'react-router-dom'
 import Checkout from "../../util/modal/checkout/Checkout";
 import { useState } from "react";
 import { useSelector } from 'react-redux'
 import CartItem from '../../component/cartItem/CartItem'
+import SmallerScreenCartItem from "../../component/smallerScreenCartItem/SmallerScreenCartItem";
 
 
 const Cart = () => {
@@ -40,6 +41,14 @@ const Cart = () => {
                 </table>
                 <Link to="/">bact to store</Link>
             </Items>
+            <SmallerScreenItems>
+                <table>
+                    <tbody>
+                        {items.map(itm => <SmallerScreenCartItem key={itm.id} id={itm.id} item={itm} />)}
+                    </tbody>
+                </table>
+                <Link to="/">bact to store</Link>
+            </SmallerScreenItems>
             <Summary>
                 <div>
                     <h4>order summary</h4>

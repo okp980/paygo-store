@@ -104,8 +104,8 @@ export const Items = styled.div`
 		padding-left: 1em;
 	}
 
-	.icon {
-		color: ${({ theme }) => theme.colors.dark100};
+	@media screen and (max-width: 960px) {
+		display: none;
 	}
 `;
 export const Summary = styled.div`
@@ -134,5 +134,89 @@ export const Summary = styled.div`
 				}
 			}
 		}
+	}
+`;
+
+export const SmallerScreenItems = styled.div`
+	margin-bottom: 2em;
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin-bottom: 2.5em;
+		tbody {
+			background-color: ${({ theme }) => theme.colors.cartItemBody};
+			tr {
+				display: flex;
+				border-bottom: 1px solid ${({ theme }) => theme.colors.light200};
+
+				&:last-of-type {
+					border-bottom: none;
+				}
+				.delete {
+					background-color: #db4437;
+					width: 30px;
+					height: 30px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					cursor: pointer;
+
+					&:hover {
+						background-color: ${({ theme }) => theme.colors.dark300};
+					}
+				}
+
+				.delete-icon {
+					margin: 0;
+					font-size: 15px;
+				}
+				.small-screen--details {
+					text-align: left;
+					padding-left: 0.8em;
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					justify-content: flex-start;
+					flex: 1;
+
+					p {
+						color: ${({ theme }) => theme.colors.light200};
+						text-transform: uppercase;
+
+						span {
+							font-weight: 600;
+						}
+					}
+				}
+				.small-screen--delete {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex: 0.2;
+				}
+				td {
+					padding: 1em 0;
+
+					button {
+						display: flex;
+						align-self: center;
+					}
+
+					a {
+						color: ${({ theme }) => theme.colors.light100};
+						display: unset;
+						margin-left: 0;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: 960px) {
+		display: none;
 	}
 `;

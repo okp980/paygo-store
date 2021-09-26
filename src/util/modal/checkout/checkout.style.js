@@ -19,10 +19,15 @@ export const Modal = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	justify-content: center;
 	z-index: 999;
 	animation: checkout 1s ease-in-out forwards;
 	background-color: ${({ theme }) => theme.colors.dark300};
 	padding: 1em;
+
+	h3 {
+		text-align: center;
+	}
 
 	.info {
 		background-color: ${({ theme }) => theme.colors.light300};
@@ -41,7 +46,9 @@ export const Modal = styled.div`
 	form {
 		border: 1px solid ${({ theme }) => theme.colors.light300};
 		padding: 3em 0.5em;
-		width: 350px;
+		/* max-width: 350px; */
+		display: flex;
+		flex-direction: column;
 		.form-control {
 			display: block;
 			margin-bottom: 1em;
