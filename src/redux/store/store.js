@@ -8,6 +8,7 @@ const store = configureStore({
 		auth: AuthSlice.reducer,
 		cart: CartSlice.reducer,
 	},
+	devTools: false,
 });
 store.dispatch(verifyAuth());
 export default store;
